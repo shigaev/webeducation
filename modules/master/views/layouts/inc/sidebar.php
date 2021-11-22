@@ -43,11 +43,16 @@ use yii\helpers\Url;
                 </a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-link">
-                    </i> <span>Another Link</span>
+                <a href="<?= Url::to(['category/index']) ?>"><i class="fa fa-cubes">
+                    </i> <span>Категории</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li>
+                <a href="<?= Url::to(['post/index']) ?>"><i class="fa fa-edit">
+                    </i> <span>Посты</span>
+                </a>
+            </li>
+            <!--<li class="treeview">
                 <a href="#">
                     <i class="fa fa-link">
                     </i> <span>Multilevel</span>
@@ -57,7 +62,7 @@ use yii\helpers\Url;
                     <li><a href="#">Link in level 2</a></li>
                     <li><a href="#">Link in level 2</a></li>
                 </ul>
-            </li>
+            </li>-->
         </ul>
         <!-- /.sidebar-menu -->
     </section>

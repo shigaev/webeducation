@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Category;
+use app\models\Post;
 use yii\web\Controller;
 
 class CategoryController extends Controller
@@ -34,6 +35,6 @@ class CategoryController extends Controller
 
         $posts = $model->posts;
 
-        return $this->render('posts', compact('posts'));
+        return $this->render('posts', compact('posts', 'model'));
     }
 }
