@@ -1,0 +1,19 @@
+.title {
+  //background-color: red;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  border-bottom: 1px solid #0000001a;
+}
+
+.post {
+  padding: 10px;
+  border-bottom: 1px solid #0000001a;
+
+  .post-title {
+
+    .post-title__link {
+      color: #000000;
+    }
+  }
+}

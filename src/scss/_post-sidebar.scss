@@ -1,0 +1,26 @@
+.sidebar {
+  min-width: 300px;
+  border-right: 1px solid #0000001a;
+  background-color: #fffcf2;
+
+  .sidebar-inside {
+    height: 100%;
+    //background-color: #f8f5ea;
+
+    .sidebar-list {
+      position: sticky;
+      top: 1rem;
+      list-style: none;
+      padding: 15px;
+
+      .sidebar-item {
+        padding: 3px 0;
+
+        .sidebar-link {
+          text-decoration: none;
+          color: #8a4c00;
+        }
+      }
+    }
+  }
+}

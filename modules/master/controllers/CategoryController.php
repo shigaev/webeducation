@@ -55,8 +55,12 @@ class CategoryController extends AppAdminController
      */
     public function actionView($id)
     {
+        $test = Category::findOne($id);
+        $testPost = $test->posts;
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'testPost' => $testPost
         ]);
     }
 
