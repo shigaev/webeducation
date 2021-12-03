@@ -7,6 +7,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'timeZone' => 'Europe/Moscow',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
@@ -54,13 +55,14 @@ $config = [
         'db' => $db,
 
         'urlManager' => [
+//            'enableStrictParsing' => true,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 '/' => 'site/index',
                 'about' => 'site/about',
                 'contact' => 'site/contact',
-                'login' => 'site/login',
+//                'login' => 'site/login',
                 'category/<id:\d+>' => 'category/view',
             ],
         ],

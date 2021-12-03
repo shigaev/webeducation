@@ -122,12 +122,13 @@ class CategoryController extends AppAdminController
 //        Category::deleteAll(['category_id', $id]);
         Post::deleteAll(['category_id' => $id]);
 
-        if ($cats) {
+        /*if ($cats) {
             \Yii::$app->session->setFlash('error', 'Удаление не возможно: в категории есть вложенные категории или посты');
         } else {
-            $this->findModel($id)->delete();
+
             \Yii::$app->session->setFlash('success', 'Категория удалена');
-        }
+        }*/
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }

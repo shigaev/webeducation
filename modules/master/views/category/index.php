@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ['class' => 'yii\grid\SerialColumn'],
 
                             'id',
+                            'title',
                             //'parent_id',
                             [
                                 'attribute' => 'parent_id',
@@ -37,7 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                     return $data->category->title ?? 'Самостоятельная категория';
                                 }
                             ],
-                            'title',
                             'description',
 
                             ['class' => 'yii\grid\ActionColumn', 'header' => 'Действия'],

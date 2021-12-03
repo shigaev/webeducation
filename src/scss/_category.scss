@@ -1,21 +1,28 @@
-.card {
-  border: none;
-  box-shadow: 0 2px 5px #00000030;
-  margin: 5px 0 10px 0;
+.category-view {
+  padding: 1rem 0;
+}
 
-  .card-img {
-    height: 200px;
-    background-color: #27debf;
+.category {
+  padding: 20px 0;
+
+
+  .category-card {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    /*background: url("/img/cards_3.jpg") center center no-repeat;
-    background-size: cover;
-    width: 100%;*/
-    text-decoration: none;
+    flex-direction: column;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 3px 17px #2663a633;
+    border-radius: 10px;
 
-    &__title {
-      color: #ffffff;
+    &__header {
+      height: 150px;
+      background-color: #93eedf;
+      border-radius: 10px 10px 0 0;
+    }
+
+    &__body {
+      height: 50%;
+      padding: 1rem;
     }
   }
 }

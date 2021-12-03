@@ -1,20 +1,27 @@
 .sidebar {
-  min-width: 300px;
-  border-right: 1px solid #0000001a;
-  background-color: #fffcf2;
+  background-color: #ffffff;
+  padding: 0 10px;
+  border-radius: 5px;
+  box-shadow: 0 3px 17px #b0b0b033;
+  position: sticky;
+  top: 1rem;
+
+  .sidebar-title {
+    color: #000000;
+    border-bottom: 1px solid #0000001a;
+    padding: 5px 0;
+  }
 
   .sidebar-inside {
     height: 100%;
-    //background-color: #f8f5ea;
 
     .sidebar-list {
-      position: sticky;
-      top: 1rem;
-      list-style: none;
-      padding: 15px;
+      padding: 0 10px 15px 15px;
 
       .sidebar-item {
         padding: 3px 0;
+        margin: 0;
+        font-size: 14px;
 
         .sidebar-link {
           text-decoration: none;

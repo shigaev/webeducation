@@ -11,5 +11,6 @@ use app\components\CategoryMenuWidget;
             'tpl' => 'menu',
             'ul_class' => 'category-all',
         ]) ?>
+
     </div>
 </div>

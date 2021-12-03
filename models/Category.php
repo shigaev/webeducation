@@ -31,4 +31,14 @@ class Category extends \yii\db\ActiveRecord
         /*return $this->hasMany(Post::class, ['id' => 'post_id'])
             ->viaTable('category_post_relationships', ['category_id' => 'id']);*/
     }
+
+    public function getParent()
+    {
+        return $this->hasOne(self::class, ['id' => 'parent_id']);
+    }
+
+    public function getArticles()
+    {
+        return $this->hasMany(Articles::class, ['category_id' => 'id']);
+    }
 }

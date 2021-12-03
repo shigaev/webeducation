@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\StringHelper;
 use yii\helpers\Url;
 
 $this->title = 'My Yii Application';
@@ -24,25 +25,30 @@ $this->title = 'My Yii Application';
             </div>
 
         </div>
+    </div>
+    <div class="category">
+        <div class="container">
+            <div class="row">
+                <?php foreach ($category as $cat): ?>
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-3">
 
-        <div class="row">
-            <?php foreach ($category as $cat): ?>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                    <div class="card">
-                        <a class="card-img" href="<?= Url::to(['category/view', 'id' => $cat['id']]) ?>">
-                            <div class="card-img__title">
-                                <?= $cat['title'] ?>
+                        <div class="category-card">
+                            <a href="<?= Url::to(['category/view', 'id' => $cat['id']]) ?>"
+                               class="category-card__header">
+
+                            </a>
+                            <div class="category-card__body">
+                                <h3>
+                                    <a href="<?= Url::to(['category/view', 'id' => $cat['id']]) ?>"><?= $cat['title'] ?></a>
+                                </h3>
+                                <p>
+                                    <?= StringHelper::truncate($cat['description'], 130) ?>
+                                </p>
                             </div>
-                        </a>
-                        <div class="card-body">
-                            <p class="card-text">
-                                <?= $cat['description'] ?>
-                            </p>
                         </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
-
 </div>

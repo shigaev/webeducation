@@ -1,30 +1,37 @@
 <?php
+
+use yii\helpers\Url;
+
 ?>
 
-<div class="wrapper">
+<div class="wrapper category-view">
     <div class="container">
         <h2><?= $category['title'] ?></h2>
-        <ul>
-            <?php foreach ($cat as $item): ?>
-                <li>
-                    <a href="<?= \yii\helpers\Url::to(['category/posts', 'id' => $item['id']]) ?>">
-                        <?= $item['title'] ?>
-                    </a>
-                </li>
+        <hr>
+        <?php foreach ($chapter as $item): ?>
+            <?php
+            $test = false;
+            foreach ($item->cate as $chap): ?>
+                <?php if ($chap['parent_id'] === $category['id']) {
+                    $test = true;
+                }
+                ?>
             <?php endforeach; ?>
-        </ul>
-
-
-        <?php foreach ($category->posts as $post): ?>
-            <div class="post">
-                <h2>
-                    <?= $post['post_title'] ?>
-                </h2>
-                <p>
-                    <?= $post['post_content'] ?>
-                </p>
-            </div>
+            <?php if ($test === true): ?>
+                <h4><?= $item['title'] ?></h4>
+                <hr>
+            <?php endif; ?>
+            <ul>
+                <?php foreach ($item->cate as $chap): ?>
+                    <?php if ($chap['parent_id'] === $category['id']): ?>
+                        <li>
+                            <a href="<?= Url::to(['category/posts', 'id' => $chap['id']]) ?>">
+                                <?= $chap['title'] ?>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
         <?php endforeach; ?>
-
     </div>
 </div>

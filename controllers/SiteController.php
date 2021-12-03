@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Articles;
 use app\models\Category;
 use Yii;
 use yii\filters\AccessControl;
@@ -66,6 +67,7 @@ class SiteController extends Controller
             ->select('id,title,description')
             ->where('parent_id=0')
             ->asArray()
+            ->orderBy('sort_field')
             ->all();
 
         return $this->render('index', compact('category'));
