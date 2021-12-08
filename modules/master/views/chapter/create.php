@@ -3,10 +3,10 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\master\models\Category */
+/* @var $model app\modules\master\models\Chapter */
 
-$this->title = 'Создание категории';
-$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['index']];
+$this->title = 'Создание раздела';
+$this->params['breadcrumbs'][] = ['label' => 'Chapters', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -14,17 +14,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-md-12">
         <div class="box">
             <div class="box-body">
-                <div class="category-create">
-
+                <div class="chapter-create">
                     <?= $this->render('_form', [
                         'model' => $model,
-                        'chapter' => $chapter
                     ]) ?>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-

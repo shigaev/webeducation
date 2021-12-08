@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\master\models\Category;
+use app\widgets\Chapter;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -32,8 +33,14 @@ $optionCategory = Category::find()
         </select>
     </div>
 
+    <div class="form-group field-category-parent_id has-success">
+        <label class="control-label" for="category-parent_id">Без раздела</label>
+        <select id="category-parent_id" class="form-control" name="Category[chapter_id]">
+            <option value="0">Без раздела</option>
+            <?php echo Chapter::widget() ?>
+        </select>
+    </div>
 
-    <!--    --><? //= $form->field($model, 'parent_id')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
@@ -42,8 +49,5 @@ $optionCategory = Category::find()
 
     <?php ActiveForm::end(); ?>
 
-    <?php
-    /*        debug($model);
-        */ ?>
 
 </div>

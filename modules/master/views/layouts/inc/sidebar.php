@@ -51,6 +51,11 @@ use yii\helpers\Url;
                     </i> <span>Посты</span>
                 </a>
             </li>
+            <li>
+                <a href="<?= Url::to(['chapter/index']) ?>"><i class="fa fa-inbox">
+                    </i> <span>Разделы</span>
+                </a>
+            </li>
             <!--<li class="treeview">
                 <a href="#">
                     <i class="fa fa-link">

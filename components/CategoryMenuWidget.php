@@ -38,12 +38,7 @@ class CategoryMenuWidget extends Widget
             }
         }
 
-//        $this->data = Category::find()->select('id, parent_id, title')->indexBy('id')->asArray()->all();
-        $this->data = Category::find()
-            ->select('id, parent_id, title')
-            ->indexBy('id')
-            ->asArray()
-            ->all();
+        $this->data = Category::find()->select('id, parent_id, title')->indexBy('id')->asArray()->all();
         $this->tree = $this->getTree();
         $this->menuHtml = '<ul class="' . $this->ul_class . '">';
         $this->menuHtml .= $this->getMenuHtml($this->tree);

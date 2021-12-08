@@ -2,18 +2,16 @@
 
 namespace app\modules\master\controllers;
 
-use app\modules\master\models\Category;
-use app\modules\master\models\CategorySearch;
-use app\modules\master\controllers\AppAdminController;
 use app\modules\master\models\Chapter;
-use app\modules\master\models\Post;
+use app\modules\master\models\ChapterSearch;
+use app\modules\master\controllers\AppAdminController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * CategoryController implements the CRUD actions for Category model.
+ * ChapterController implements the CRUD actions for Chapter model.
  */
-class CategoryController extends AppAdminController
+class ChapterController extends AppAdminController
 {
     /**
      * @inheritDoc
@@ -34,12 +32,12 @@ class CategoryController extends AppAdminController
     }
 
     /**
-     * Lists all Category models.
+     * Lists all Chapter models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CategorySearch();
+        $searchModel = new ChapterSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -49,30 +47,26 @@ class CategoryController extends AppAdminController
     }
 
     /**
-     * Displays a single Category model.
+     * Displays a single Chapter model.
      * @param int $id ID
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
-        $test = Category::findOne($id);
-        $testPost = $test->posts;
-
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'testPost' => $testPost
         ]);
     }
 
     /**
-     * Creates a new Category model.
+     * Creates a new Chapter model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Category();
+        $model = new Chapter();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -88,7 +82,7 @@ class CategoryController extends AppAdminController
     }
 
     /**
-     * Updates an existing Category model.
+     * Updates an existing Chapter model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return mixed
@@ -108,7 +102,7 @@ class CategoryController extends AppAdminController
     }
 
     /**
-     * Deletes an existing Category model.
+     * Deletes an existing Chapter model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
      * @return mixed
@@ -116,34 +110,21 @@ class CategoryController extends AppAdminController
      */
     public function actionDelete($id)
     {
-//        $this->findModel($id)->unlinkAll('posts', true);
-
-        $cats = Category::find()->where(['parent_id' => $id])->count();
-
-//        Category::deleteAll(['category_id', $id]);
-        Post::deleteAll(['category_id' => $id]);
-
-        /*if ($cats) {
-            \Yii::$app->session->setFlash('error', 'Удаление не возможно: в категории есть вложенные категории или посты');
-        } else {
-
-            \Yii::$app->session->setFlash('success', 'Категория удалена');
-        }*/
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Category model based on its primary key value.
+     * Finds the Chapter model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id ID
-     * @return Category the loaded model
+     * @return Chapter the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Category::findOne($id)) !== null) {
+        if (($model = Chapter::findOne($id)) !== null) {
             return $model;
         }
 

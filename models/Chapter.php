@@ -24,26 +24,4 @@ class Chapter extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Category::class, ['chapter_id' => 'id']);
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['title'], 'required'],
-            [['title'], 'string', 'max' => 128],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'title' => 'Title',
-        ];
-    }
 }
