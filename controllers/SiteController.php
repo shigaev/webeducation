@@ -64,8 +64,11 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $category = Category::find()
-            ->select('id,title,description')
-            ->where('parent_id=0')
+            ->select('id,title,description,index_page')
+            ->where([
+                'parent_id' => 0,
+                'index_page' => 1
+            ])
             ->asArray()
             ->orderBy('sort_field')
             ->all();

@@ -20,8 +20,9 @@ class CategoryController extends Controller
     {
         $category = Category::findOne($id);
         $chapter = Chapter::find()->all();
+
         $cat = Category::find()
-            ->select('id,parent_id,title')
+            ->select('id,parent_id,title,chapter_id')
             ->indexBy('id')
             ->where([
                 'parent_id' => $id,
@@ -30,7 +31,7 @@ class CategoryController extends Controller
             ->asArray()
             ->all();
 
-        return $this->render('view', compact('cat', 'category', 'chapter'));
+        return $this->render('view', compact('cat', 'category', 'chapter', 'categoryAll'));
     }
 
     public function actionPosts($id)

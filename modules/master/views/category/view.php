@@ -41,6 +41,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             'title',
                             'description',
+                            [
+                                'attribute' => 'index_page',
+                                'value' => function ($data) {
+                                    return ($data->index_page) ? 'да' : 'нет';
+                                }
+                            ],
                         ],
                     ]) ?>
 

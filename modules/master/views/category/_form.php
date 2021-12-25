@@ -1,5 +1,6 @@
 <?php
 
+use app\components\CategoryMenuWidget;
 use app\modules\master\models\Category;
 use app\widgets\Chapter;
 use yii\helpers\Html;
@@ -25,7 +26,7 @@ $optionCategory = Category::find()
         <label class="control-label" for="category-parent_id">Родительская категория</label>
         <select id="category-parent_id" class="form-control" name="Category[parent_id]">
             <option value="0">Самостоятельная категория</option>
-            <?= \app\components\CategoryMenuWidget::widget([
+            <?= CategoryMenuWidget::widget([
                 'tpl' => 'select',
                 'model' => $model,
                 'cache_time' => 0
@@ -33,21 +34,24 @@ $optionCategory = Category::find()
         </select>
     </div>
 
-    <div class="form-group field-category-parent_id has-success">
-        <label class="control-label" for="category-parent_id">Без раздела</label>
-        <select id="category-parent_id" class="form-control" name="Category[chapter_id]">
+    <div class="form-group field-category-chapter_id has-success">
+        <label class="control-label" for="category-chapter_id">Раздел</label>
+        <select id="category-chapter_id" class="form-control" name="Category[chapter_id]">
             <option value="0">Без раздела</option>
-            <?php echo Chapter::widget() ?>
+            <?php echo Chapter::widget([
+                'tpl' => 'select',
+                'model' => $model
+            ]) ?>
         </select>
     </div>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'index_page')->dropDownList(['нет', 'да']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
-
-
 </div>

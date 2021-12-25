@@ -8,13 +8,16 @@ class Chapter extends Widget
 {
     public $data;
     public $htmlTemplate;
+    public $tpl;
+    public $model;
 
     public function init()
     {
         parent::init();
         if ($this->data === null) {
-            $this->data = 'Нет данных';
+            $this->data = [];
         }
+        $this->tpl .= '.php';
     }
 
     public function run()
@@ -25,17 +28,25 @@ class Chapter extends Widget
             ->asArray()
             ->all();
 
-        $this->htmlTemplate .= $this->getHtmlTemplate($this->data);
+
+        $this->htmlTemplate .= $this->getChapterData($this->data);
 
         return $this->htmlTemplate;
     }
 
-    public function getHtmlTemplate($data)
+    public function getChapterData($data)
     {
         $dataStr = '';
-        foreach ($data as $key => $datum) {
-            $dataStr .= '<option value="' . $data[$key]['id'] . '">' . $data[$key]['title'] . '</option>';
+        foreach ($data as $datum) {
+            $dataStr .= $this->getChapterTemplate($datum, '');
         }
         return $dataStr;
+    }
+
+    public function getChapterTemplate($datum, $key)
+    {
+        ob_start();
+        include __DIR__ . '/chapter_tpl/' . $this->tpl;
+        return ob_get_clean();
     }
 }

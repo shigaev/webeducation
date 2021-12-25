@@ -5,7 +5,7 @@
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
 
-$this->title = 'My Yii Application';
+$this->title = 'Web education. Справочный портал по языкам программирования.';
 ?>
 
 <div class="wrapper">

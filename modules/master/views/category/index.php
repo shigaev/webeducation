@@ -31,7 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
                             'id',
                             'title',
-                            'chapter_id',
+                            //'index_page',
+                            [
+                                'attribute' => 'index_page',
+                                'value' => function ($data) {
+                                    return ($data->index_page) ? 'да' : 'нет';
+                                }
+                            ],
+                            //'chapter_id',
                             //'parent_id',
                             [
                                 'attribute' => 'parent_id',
