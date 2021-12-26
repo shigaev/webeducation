@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Articles;
+use app\models\ArticlesCategory;
 use app\models\Category;
 use Yii;
 use yii\filters\AccessControl;
@@ -136,5 +137,29 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionArticles()
+    {
+        $allArticles = Articles::find()->asArray()->all();
+        $articleCategory = ArticlesCategory::find()->asArray()->all();
+
+        return $this->render('articles', compact('allArticles', 'articleCategory'));
+    }
+
+    public function actionArticleView($id)
+    {
+        $artArt = Articles::findOne($id);
+
+        return $this->render('article-view', compact('artArt'));
+    }
+
+    public function actionArticleCategory($id)
+    {
+        $articleCategory = ArticlesCategory::findOne($id);
+
+        $articles = $articleCategory->articles;
+
+        return $this->render('article-category', compact('articleCategory', 'articles'));
     }
 }

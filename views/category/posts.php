@@ -26,9 +26,6 @@ echo Breadcrumbs::widget([
 
 <div class="wrapper wrapper-post">
     <h2 class="title"><?= $model['title'] ?></h2>
-    <?php
-
-    ?>
     <div class="test">
         <div class="row">
             <div class="col-xl-3 col-lg-3 col-md-12">

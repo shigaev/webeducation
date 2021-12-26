@@ -31,7 +31,7 @@ class CategoryController extends Controller
             ->asArray()
             ->all();
 
-        return $this->render('view', compact('cat', 'category', 'chapter', 'categoryAll'));
+        return $this->render('view', compact('cat', 'category', 'chapter'));
     }
 
     public function actionPosts($id)

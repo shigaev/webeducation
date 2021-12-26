@@ -22,6 +22,9 @@ $config = [
         ],
     ],
     'components' => [
+        'assetManager' => [
+            'appendTimestamp' => true, // кеширование js и css
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'CDeczPUs4i2V6GL_OcMyShVRJ-Gy8_Ea',
@@ -66,6 +69,9 @@ $config = [
                 'contact' => 'site/contact',
 //                'login' => 'site/login',
                 'category/<id:\d+>' => 'category/view',
+                'articles' => 'site/articles',
+//                'articles-view/<id:\d+>' => 'site/articles-view',
+                'article-category/<id:\d+>' => 'site/article-category'
             ],
         ],
 
