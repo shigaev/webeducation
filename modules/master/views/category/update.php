@@ -11,18 +11,12 @@ $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'i
 $this->params['breadcrumbs'][] = 'Редактировать';
 ?>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="box">
-            <div class="box-body">
-                <div class="category-update">
-
-                    <?= $this->render('_form', [
-                        'model' => $model,
-                    ]) ?>
-
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="card">
+	<div class="card-body">
+		<div class="table-responsive">
+            <?= $this->render('_form', [
+                'model' => $model,
+            ]) ?>
+		</div>
+	</div>
 </div>

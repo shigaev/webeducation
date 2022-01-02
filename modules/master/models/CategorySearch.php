@@ -3,6 +3,7 @@
 namespace app\modules\master\models;
 
 use yii\base\Model;
+use yii\bootstrap4\LinkPager;
 use yii\data\ActiveDataProvider;
 use app\modules\master\models\Category;
 
@@ -48,7 +49,7 @@ class CategorySearch extends Category
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => 10
+                'pageSize' => 10,
             ],
         ]);
 

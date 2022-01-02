@@ -111,6 +111,7 @@ class ChapterController extends AppAdminController
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+        \Yii::$app->session->setFlash('success', 'Раздел удален');
 
         return $this->redirect(['index']);
     }

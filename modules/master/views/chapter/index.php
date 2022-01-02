@@ -11,32 +11,41 @@ $this->title = 'Разделы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="box">
-            <div class="box-header with-border">
-                <?= Html::a('Создать раздел', ['create'], ['class' => 'btn btn-success']) ?>
-            </div>
-            <div class="box-body">
-                <div class="chapter-index">
-                    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<div class="card">
+	<div class="card-body">
+		<div class="creater">
+            <?= Html::a('Создать раздел', ['create'], ['class' => 'btn btn-success']) ?>
+		</div>
 
-                    <?= GridView::widget([
-                        'dataProvider' => $dataProvider,
-                        'filterModel' => $searchModel,
-                        'columns' => [
-                            ['class' => 'yii\grid\SerialColumn'],
+        <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-                            'id',
-                            'title',
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'tableOptions' => ['class' => 'table table-hover'],
+            'pager' => [
+                'nextPageLabel' => 'Next',
+                'prevPageLabel' => 'Previous',
+                'disableCurrentPageButton' => false,
+                'nextPageCssClass' => 'page-item',
+                'prevPageCssClass' => 'page-item',
+                'pageCssClass' => 'page-item',
+//					'maxButtonCount' => '',
+                'linkOptions' => [
+                    'class' => 'page-link'
+                ],
+                'disabledListItemSubTagOptions' => [
+                    'class' => 'page-link'
+                ]
+            ],
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-                            ['class' => 'yii\grid\ActionColumn'],
-                        ],
-                    ]); ?>
+                'id',
+                'title',
 
-
-                </div>
-            </div>
-        </div>
-    </div>
+                ['class' => 'yii\grid\ActionColumn'],
+            ],
+        ]); ?>
+	</div>
 </div>

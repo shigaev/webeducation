@@ -7,13 +7,14 @@ use app\modules\master\models\CategorySearch;
 use app\modules\master\controllers\AppAdminController;
 use app\modules\master\models\Chapter;
 use app\modules\master\models\Post;
+use Yii;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * CategoryController implements the CRUD actions for Category model.
  */
-class CategoryController extends AppAdminController
+class CategoryController extends DefaultController
 {
     /**
      * @inheritDoc
@@ -116,20 +117,19 @@ class CategoryController extends AppAdminController
      */
     public function actionDelete($id)
     {
-//        $this->findModel($id)->unlinkAll('posts', true);
+        $this->findModel($id)->unlinkAll('posts', true);
 
         $cats = Category::find()->where(['parent_id' => $id])->count();
 
-//        Category::deleteAll(['category_id', $id]);
+        //Category::deleteAll(['category_id', $id]);
         Post::deleteAll(['category_id' => $id]);
 
-        /*if ($cats) {
+        if ($cats) {
             \Yii::$app->session->setFlash('error', 'Удаление не возможно: в категории есть вложенные категории или посты');
         } else {
-
+            $this->findModel($id)->delete();
             \Yii::$app->session->setFlash('success', 'Категория удалена');
-        }*/
-        $this->findModel($id)->delete();
+        }
 
         return $this->redirect(['index']);
     }

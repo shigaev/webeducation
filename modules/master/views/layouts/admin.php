@@ -1,7 +1,7 @@
 <?php
 
 use app\assets\AdminAsset;
-use app\widgets\Alert;
+//use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 
@@ -208,7 +208,6 @@ AdminAsset::register($this);
                     'homeLink' => ['label' => 'Главная', 'url' => '/master/'],
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>
-                <?= Alert::widget() ?>
             </section>
 
             <!-- Main content -->

@@ -7,7 +7,8 @@ use Yii;
 
 class AuthController extends AppAdminController
 {
-    public $layout = 'auth';
+//    public $layout = 'auth';
+    public $layout = 'syndron-auth';
 
     public function actionLogin()
     {

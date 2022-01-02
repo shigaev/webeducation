@@ -1,5 +1,7 @@
 <?php
 
+use yii\bootstrap4\LinkPager;
+use yii\data\Pagination;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -11,49 +13,64 @@ $this->title = 'Категории';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
+<div class="card">
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="box">
-            <div class="box-header with-border">
-                <?= Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']) ?>
-            </div>
-            <div class="box-body">
-                <div class="category-index">
-                    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+	<div class="card-body">
+		<div class="creater">
+            <?= Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']) ?>
+		</div>
+		<div class="">
 
-                    <?= GridView::widget([
-                        'dataProvider' => $dataProvider,
-                        'filterModel' => $searchModel,
-                        'tableOptions' => ['class' => 'table table-striped table-bordered table-hover'],
-                        'columns' => [
-                            ['class' => 'yii\grid\SerialColumn'],
 
-                            'id',
-                            'title',
-                            //'index_page',
-                            [
-                                'attribute' => 'index_page',
-                                'value' => function ($data) {
-                                    return ($data->index_page) ? 'да' : 'нет';
-                                }
-                            ],
-                            //'chapter_id',
-                            //'parent_id',
-                            [
-                                'attribute' => 'parent_id',
-                                'value' => function ($data) {
-                                    return $data->category->title ?? 'Самостоятельная категория';
-                                }
-                            ],
-                            'description',
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+//                'filterModel' => $searchModel,
+                'tableOptions' => ['class' => 'table table-hover'],
+                /**
+                 * Настройки пагинации
+                 */
+                'pager' => [
+                    'nextPageLabel' => 'Next',
+                    'prevPageLabel' => 'Previous',
+                    'disableCurrentPageButton' => false,
+                    'nextPageCssClass' => 'page-item',
+                    'prevPageCssClass' => 'page-item',
+                    'pageCssClass' => 'page-item',
+//					'maxButtonCount' => '',
+                    'linkOptions' => [
+                        'class' => 'page-link'
+                    ],
+                    'disabledListItemSubTagOptions' => [
+                        'class' => 'page-link'
+                    ]
+                ],
 
-                            ['class' => 'yii\grid\ActionColumn', 'header' => 'Действия'],
-                        ],
-                    ]); ?>
+                'columns' => [
+//                    ['class' => 'yii\grid\SerialColumn'],
 
-                </div>
-            </div>
-        </div>
-    </div>
+                    'id',
+                    'title',
+                    //'index_page',
+                    [
+                        'attribute' => 'index_page',
+                        'value' => function ($data) {
+                            return ($data->index_page) ? 'да' : 'нет';
+                        }
+                    ],
+                    //'chapter_id',
+                    //'parent_id',
+                    [
+                        'attribute' => 'parent_id',
+                        'value' => function ($data) {
+                            return $data->category->title ?? 'Самостоятельная категория';
+                        }
+                    ],
+                    'description',
+                    ['class' => 'yii\grid\ActionColumn', 'header' => 'Действия'],
+                ],
+            ]);
+
+            ?>
+		</div>
+	</div>
 </div>

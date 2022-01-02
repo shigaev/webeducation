@@ -17,11 +17,15 @@ $config = [
     'modules' => [
         'master' => [
             'class' => 'app\modules\master\Module',
-            'layout' => 'admin',
+            'layout' => 'syndron',
             'defaultRoute' => 'main/index' // Дефолтный маршрут админки
         ],
     ],
     'components' => [
+//        'session' => [
+//            'class' => 'yii\web\Session',
+//            'timeout'=>3600,
+//        ],
         'assetManager' => [
             'appendTimestamp' => true, // кеширование js и css
         ],
