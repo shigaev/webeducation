@@ -448,7 +448,7 @@ SyndronAdminAsset::register($this);
 		<div class="page-wrapper">
 			<div class="page-content">
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="ps-3">
+<!--					<div class="ps-3">-->
 						<nav aria-label="breadcrumbq">
                             <?= Breadcrumbs::widget([
                                 'itemTemplate' => "<li class='breadcrumb-item'>{link}</li>\n", // template for all links
@@ -457,7 +457,7 @@ SyndronAdminAsset::register($this);
                                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                             ]) ?>
 						</nav>
-					</div>
+<!--					</div>-->
 					<div class="ms-auto">
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary">Settings</button>
