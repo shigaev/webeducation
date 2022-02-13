@@ -9,16 +9,16 @@ class AuthAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'web/master/bower_components/bootstrap/dist/css/bootstrap.min.css',
-        'web/master/bower_components/font-awesome/css/font-awesome.min.css',
-        'web/master/bower_components/Ionicons/css/ionicons.min.css',
-        'web/master/dist/css/AdminLTE.min.css',
-        'web/master/plugins/iCheck/square/blue.css',
+        'web/adminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css',
+        'web/adminLTE/bower_components/font-awesome/css/font-awesome.min.css',
+        'web/adminLTE/bower_components/Ionicons/css/ionicons.min.css',
+        'web/adminLTE/dist/css/AdminLTE.min.css',
+        'web/adminLTE/plugins/iCheck/square/blue.css',
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic',
     ];
     public $js = [
-        'web/master/bower_components/bootstrap/dist/js/bootstrap.min.js',
-        'web/master/plugins/iCheck/icheck.min.js',
+        'web/adminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js',
+        'web/adminLTE/plugins/iCheck/icheck.min.js',
         'js/admin.js'
     ];
     public $depends = [

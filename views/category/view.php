@@ -19,15 +19,17 @@ use yii\helpers\Url;
                         }
                         ?>
                     <?php endforeach; ?>
+
                     <?php if ($result === true): ?>
                         <h4><?= $item['title'] ?></h4>
                         <hr>
                     <?php endif; ?>
+
                     <ul>
                         <?php foreach ($item->cate as $chap): ?>
                             <?php if ($chap['parent_id'] === $category['id']): ?>
 
-                                <li class="<?= $classLi ?>">
+                                <li>
                                     <a href="<?= Url::to(['category/posts', 'id' => $chap['id']]) ?>">
                                         <?= $chap['title'] ?>
                                     </a>

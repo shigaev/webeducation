@@ -7,7 +7,7 @@ use yii\data\ActiveDataProvider;
 use app\modules\master\models\Chapter;
 
 /**
- * ChapterSearch represents the model behind the search form of `app\modules\master\models\Chapter`.
+ * ChapterSearch represents the model behind the search form of `app\modules\adminLTE\models\Chapter`.
  */
 class ChapterSearch extends Chapter
 {

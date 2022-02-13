@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use app\modules\master\models\Category;
 
 /**
- * CategorySearch represents the model behind the search form of `app\modules\master\models\Category`.
+ * CategorySearch represents the model behind the search form of `app\modules\adminLTE\models\Category`.
  */
 class CategorySearch extends Category
 {

@@ -7,7 +7,7 @@ use yii\data\ActiveDataProvider;
 use app\modules\master\models\Post;
 
 /**
- * PostSearch represents the model behind the search form of `app\modules\master\models\Post`.
+ * PostSearch represents the model behind the search form of `app\modules\adminLTE\models\Post`.
  */
 class PostSearch extends Post
 {

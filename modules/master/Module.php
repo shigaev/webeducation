@@ -5,7 +5,7 @@ namespace app\modules\master;
 use yii\filters\AccessControl;
 
 /**
- * master module definition class
+ * adminLTE module definition class
  */
 class Module extends \yii\base\Module
 {

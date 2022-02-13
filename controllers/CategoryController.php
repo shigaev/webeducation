@@ -10,6 +10,8 @@ use yii\web\Controller;
 
 class CategoryController extends Controller
 {
+    public $arr = [];
+
     public function actionIndex()
     {
         $chapter = Chapter::find()->all();

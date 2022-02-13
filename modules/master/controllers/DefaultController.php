@@ -5,7 +5,7 @@ namespace app\modules\master\controllers;
 use yii\web\Controller;
 
 /**
- * Default controller for the `master` module
+ * Default controller for the `adminLTE` module
  */
 class DefaultController extends AppAdminController
 {

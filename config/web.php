@@ -75,7 +75,7 @@ $config = [
                 'category/<id:\d+>' => 'category/view',
                 'articles' => 'site/articles',
 //                'articles-view/<id:\d+>' => 'site/articles-view',
-                'article-category/<id:\d+>' => 'site/article-category'
+                'article-category/<id:\d+>' => 'site/article-category',
             ],
         ],
 
