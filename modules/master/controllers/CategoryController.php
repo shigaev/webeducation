@@ -6,11 +6,12 @@ use app\modules\master\models\Category;
 use app\modules\master\models\CategorySearch;
 use app\modules\master\controllers\AppAdminController;
 use app\modules\master\models\Chapter;
+use app\modules\master\models\ImageUpload;
 use app\modules\master\models\Post;
-use app\modules\master\models\UploadImage;
 use Yii;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * CategoryController implements the CRUD actions for Category model.
@@ -149,5 +150,20 @@ class CategoryController extends DefaultController
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionUploadImage($id)
+    {
+        $model = new ImageUpload();
+
+        if (Yii::$app->request->isPost) {
+
+            $category = $this->findModel($id);
+            $file = UploadedFile::getInstance($model, 'image');
+
+            $category->saveImage($model->uploadFile($file));
+        }
+
+        return $this->render('image', ['model' => $model]);
     }
 }

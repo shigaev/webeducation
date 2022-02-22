@@ -14,10 +14,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <div class="card">
-	<div class="card-body">
-		<div class="table-responsive">
-			<p>
+    <div class="card-body">
+        <div class="table-responsive">
+            <p>
                 <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a('Загрузить изображение', ['upload-image', 'id' => $model->id], ['class' => 'btn btn-secondary']) ?>
                 <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
                     'class' => 'btn btn-danger',
                     'data' => [
@@ -25,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'method' => 'post',
                     ],
                 ]) ?>
-			</p>
+            </p>
 
             <?= DetailView::widget([
                 'model' => $model,
@@ -50,33 +51,33 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ],
             ]) ?>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>
 
 <div class="card">
-	<div class="card-body">
-		<div class="table-responsive">
-			<table class="table">
-				<tbody>
-				<tr>
-					<th style="width: 10px">ID</th>
-					<th>Заголовок поста</th>
-				</tr>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th style="width: 10px">ID</th>
+                    <th>Заголовок поста</th>
+                </tr>
                 <?php foreach ($testPost as $item): ?>
-					<tr>
-						<td><?= $item['id'] ?></td>
-						<td>
-							<a href="/master/post/view?id=<?= $item->id ?>">
+                    <tr>
+                        <td><?= $item['id'] ?></td>
+                        <td>
+                            <a href="/master/post/view?id=<?= $item->id ?>">
                                 <?= $item->post_title ?>
-							</a>
-						</td>
-					</tr>
+                            </a>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
-				</tbody>
-			</table>
-		</div>
-	</div>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 

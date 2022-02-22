@@ -59,4 +59,10 @@ class Category extends \yii\db\ActiveRecord
             'index_page' => 'Отображение на главной'
         ];
     }
+
+    public function saveImage($fileName)
+    {
+        $this->image = $fileName;
+        $this->save(false);
+    }
 }

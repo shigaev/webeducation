@@ -65,7 +65,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $category = Category::find()
-            ->select('id,title,description,index_page')
+            ->select('id,title,description,image,index_page')
             ->where([
                 'parent_id' => 0,
                 'index_page' => 1
