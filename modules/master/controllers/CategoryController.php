@@ -7,6 +7,7 @@ use app\modules\master\models\CategorySearch;
 use app\modules\master\controllers\AppAdminController;
 use app\modules\master\models\Chapter;
 use app\modules\master\models\Post;
+use app\modules\master\models\UploadImage;
 use Yii;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

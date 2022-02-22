@@ -10,37 +10,37 @@ class SyndronAdminAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         // plugins
-        'web/syndron/assets/plugins/simplebar/css/simplebar.css',
-        'web/syndron/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css',
-        'web/syndron/assets/plugins/metismenu/css/metisMenu.min.css',
-        'web/syndron/assets/plugins/datatable/css/dataTables.bootstrap5.min.css',
+        'syndron/assets/plugins/simplebar/css/simplebar.css',
+        'syndron/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css',
+        'syndron/assets/plugins/metismenu/css/metisMenu.min.css',
+        'syndron/assets/plugins/datatable/css/dataTables.bootstrap5.min.css',
         // loader
-        'web/syndron/assets/css/pace.min.css',
+        'syndron/assets/css/pace.min.css',
         // Bootstrap CSS
-        'web/syndron/assets/css/bootstrap.min.css',
-        'web/syndron/assets/css/app.css',
-        'web/syndron/assets/css/icons.css',
+        'syndron/assets/css/bootstrap.min.css',
+        'syndron/assets/css/app.css',
+        'syndron/assets/css/icons.css',
         // Theme Style CSS
-        'web/syndron/assets/css/dark-theme.css',
-        'web/syndron/assets/css/semi-dark.css',
-        'web/syndron/assets/css/header-colors.css',
-        'web/syndron/assets/css/my-app.css',
+        'syndron/assets/css/dark-theme.css',
+        'syndron/assets/css/semi-dark.css',
+        'syndron/assets/css/header-colors.css',
+        'syndron/assets/css/my-app.css',
     ];
     public $js = [
         // loader
-        'web/syndron/assets/js/pace.min.js',
+        'syndron/assets/js/pace.min.js',
         // Bootstrap JS
-        'web/syndron/assets/js/bootstrap.bundle.min.js',
+        'syndron/assets/js/bootstrap.bundle.min.js',
         // plugins
-        'web/syndron/assets/plugins/simplebar/js/simplebar.min.js',
-        'web/syndron/assets/plugins/metismenu/js/metisMenu.min.js',
-        'web/syndron/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js',
-        'web/syndron/assets/plugins/apexcharts-bundle/js/apexcharts.min.js',
-        'web/syndron/assets/plugins/datatable/js/jquery.dataTables.min.js',
-        'web/syndron/assets/plugins/datatable/js/dataTables.bootstrap5.min.js',
-        'web/syndron/assets/js/index.js',
+        'syndron/assets/plugins/simplebar/js/simplebar.min.js',
+        'syndron/assets/plugins/metismenu/js/metisMenu.min.js',
+        'syndron/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js',
+        'syndron/assets/plugins/apexcharts-bundle/js/apexcharts.min.js',
+        'syndron/assets/plugins/datatable/js/jquery.dataTables.min.js',
+        'syndron/assets/plugins/datatable/js/dataTables.bootstrap5.min.js',
+        'syndron/assets/js/index.js',
         // app JS
-        'web/syndron/assets/js/app.js',
+        'syndron/assets/js/app.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

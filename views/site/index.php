@@ -23,27 +23,30 @@ $this->title = 'Web education. Справочный портал по языка
                     <img src="/img/img_1.svg" alt="">
                 </div>
             </div>
-
         </div>
     </div>
     <div class="category">
         <div class="container">
             <div class="row">
                 <?php foreach ($category as $cat): ?>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-3">
-
-                        <div class="category-card">
-                            <a href="<?= Url::to(['category/view', 'id' => $cat['id']]) ?>"
-                               class="category-card__header">
-
-                            </a>
-                            <div class="category-card__body">
-                                <h3>
-                                    <a href="<?= Url::to(['category/view', 'id' => $cat['id']]) ?>"><?= $cat['title'] ?></a>
-                                </h3>
-                                <p>
-                                    <?= StringHelper::truncate($cat['description'], 130) ?>
-                                </p>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+                        <div class="card mb-3 h-100">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="..." class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="<?= Url::to(['category/view', 'id' => $cat['id']]) ?>"><?= $cat['title'] ?></a>
+                                        </h5>
+                                        <p class="card-text">
+                                            <?= StringHelper::truncate($cat['description'], 130) ?>
+                                        </p>
+                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

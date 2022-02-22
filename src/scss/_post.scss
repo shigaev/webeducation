@@ -7,32 +7,22 @@
 }
 
 .wrapper-post {
-  background-color: #f5f5f582;
+  .post {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
 
-  .test {
-    max-width: 1380px;
-    margin: 0 auto;
-    padding: 0 10px;
-
-    .post {
-      padding: 10px 15px;
-      border-bottom: 1px solid #0000001a;
-      background-color: #ffffff;
-      border-radius: 5px;
-      margin-bottom: 5px;
-      box-shadow: 0 3px 17px #b0b0b033;
-      font-size: 16px;
-      //font-family: 'Proxima Nova Regular';
-
-      .post-title {
-        font-size: 24px;
-        padding: 20px 0;
-
-        .post-title__link {
-          color: #8a4c00;
-          text-decoration: none;
-        }
+    .post-title {
+      .post-title__link {
+        color: #000000;
+        text-decoration: none;
       }
+    }
+
+    .post-content {
+      font-family: Verdana, sans-serif;
     }
   }
 }

@@ -12,7 +12,7 @@ SyndronAdminAsset::register($this);
     <html lang="<?= Yii::$app->language ?>" class="semi-dark">
 
     <head>
-        <base href="/web/syndron/">
+        <base href="/syndron/">
         <!-- Required meta tags -->
         <meta charset="<?= Yii::$app->charset ?>">
         <?php $this->registerCsrfMetaTags() ?>

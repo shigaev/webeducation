@@ -26,7 +26,7 @@ echo Breadcrumbs::widget([
 
 <div class="wrapper wrapper-post">
     <h2 class="title"><?= $model['title'] ?></h2>
-    <div class="test">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xl-3 col-lg-3 col-md-12">
                 <div class="sidebar">
@@ -38,6 +38,7 @@ echo Breadcrumbs::widget([
                                     <a class="sidebar-link"
                                        href="#<?= $post['id'] ?>"><?= $post['post_title'] ?></a>
                                 </li>
+                                <hr>
                             <?php endforeach; ?>
                         </ol>
                     </div>
@@ -51,13 +52,9 @@ echo Breadcrumbs::widget([
                                 <?= $post['post_title'] ?>
                             </a>
                         </h2>
-                        <p>
+                        <div class="post-content">
                             <?= $post['post_content'] ?>
-                        </p>
-                        <hr>
-                        <p>
-                            <?= $post['post_date'] ?>
-                        </p>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>

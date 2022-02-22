@@ -53,7 +53,7 @@ const rename = require('gulp-rename')
 function browsersync() {
     browserSync.init({
         proxy: {
-            target: "http://webeducation.loc/", // заворачивает локальный адрес в localhost
+            target: "http://local.webeducation/", // заворачивает локальный адрес в localhost
         },
         notify: false, // Отключает уведомления browser-sync
         online: true // Работа в локальной сети (есть возможность зайти с мобильного устройства)

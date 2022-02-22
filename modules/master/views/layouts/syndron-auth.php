@@ -10,7 +10,7 @@ SyndronAuthAsset::register($this);
 	<html lang="<?= Yii::$app->language ?>">
 
 	<head>
-		<base href="/web/syndron/">
+		<base href="/syndron/">
 		<!-- Required meta tags -->
 		<meta charset="<?= Yii::$app->charset ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">

@@ -41,10 +41,11 @@ class ArticleCategory extends Widget
     public function getArticleCategoryData($articleCategoryArray)
     {
         $artCatStr = '';
+        $allArticles = '<a class="article-category__title all-articles" href="/articles">Все статьи</a>';
         foreach ($articleCategoryArray as $item) {
             $artCatStr .= $this->getArticleCategoryTemplate($item, '');
         }
-        return $artCatStr;
+        return $allArticles . $artCatStr;
     }
 
     public function getArticleCategoryTemplate($category, $key)
