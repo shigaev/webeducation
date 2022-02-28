@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="card">
 
-	<div class="card-body">
-		<div class="creater">
+    <div class="card-body">
+        <div class="creater">
             <?= Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']) ?>
-		</div>
-		<div class="">
+        </div>
+        <div class="">
 
 
             <?= GridView::widget([
@@ -50,6 +50,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     'id',
                     'title',
+//                    'image',
+                    [
+                        'attribute' => 'image',
+                        'value' => function ($data) {
+                            return !empty($data->image) ? '<img style="width:30px;" src="/uploads/' . $data->image . '">' :
+                                '<img style="width:30px;" src="/upload/files/no-image.png">';
+                        },
+                        'format' => 'raw'
+                    ],
                     //'index_page',
                     [
                         'attribute' => 'index_page',
@@ -71,6 +80,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ]);
 
             ?>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>

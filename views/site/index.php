@@ -30,10 +30,11 @@ $this->title = 'Web education. Справочный портал по языка
             <div class="row">
                 <?php foreach ($category as $cat): ?>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-3">
-                        <div class="card mb-3 h-100">
-                            <div class="row g-0">
+                        <div class="card h-100">
+                            <div class="row h-100">
                                 <div class="col-md-4">
-                                    <img src="/uploads/<?= $cat['image'] ?>" class="img-fluid rounded-start" alt="...">
+                                    <div class="card-image"
+                                         style="background: url('/uploads/<?= $cat['image'] ?>') center center no-repeat;background-size: cover"></div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
@@ -41,10 +42,9 @@ $this->title = 'Web education. Справочный портал по языка
                                             <a href="<?= Url::to(['category/view', 'id' => $cat['id']]) ?>"><?= $cat['title'] ?></a>
                                         </h5>
                                         <p class="card-text">
-                                            <?= StringHelper::truncate($cat['description'], 130) ?>
+                                            <?= StringHelper::truncate($cat['description'], 70) ?>
                                         </p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
+
                                     </div>
                                 </div>
                             </div>

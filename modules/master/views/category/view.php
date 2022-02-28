@@ -15,43 +15,53 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="card">
     <div class="card-body">
-        <div class="table-responsive">
-            <p>
-                <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-                <?= Html::a('Загрузить изображение', ['upload-image', 'id' => $model->id], ['class' => 'btn btn-secondary']) ?>
-                <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
-                    'class' => 'btn btn-danger',
-                    'data' => [
-                        'confirm' => 'Are you sure you want to delete this item?',
-                        'method' => 'post',
-                    ],
-                ]) ?>
-            </p>
-
-            <?= DetailView::widget([
-                'model' => $model,
-                'options' => [
-                    'class' => 'table'
-                ],
-                'attributes' => [
-                    'id',
-                    //'parent_id',
-                    [
-                        'attribute' => 'parent_id',
-                        'value' => isset($model->category->title) ? '<a href=" ' . \yii\helpers\Url::to(['category/view', 'id' => $model->category->id]) . ' ">' . $model->category->title . '</a>' : 'Самостоятельная категория',
-                        'format' => 'raw'
-                    ],
-                    'title',
-                    'description',
-                    [
-                        'attribute' => 'index_page',
-                        'value' => function ($data) {
-                            return ($data->index_page) ? 'да' : 'нет';
-                        }
-                    ],
+        <!--        <div class="table-responsive">-->
+        <p>
+            <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Загрузить изображение', ['upload-image', 'id' => $model->id], ['class' => 'btn btn-secondary']) ?>
+            <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => 'Are you sure you want to delete this item?',
+                    'method' => 'post',
                 ],
             ]) ?>
+        </p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <?php if (!empty($model['image'])) : ?>
+                    <img src="/uploads/<?= $model['image'] ?>" style="max-width: 100%" alt="">
+                <?php else: ?>
+                    <img src="/upload/files/no-image.png" style="max-width: 100%" alt="">
+                <?php endif; ?>
+
+            </div>
+            <div class="col-md-8"><?= DetailView::widget([
+                    'model' => $model,
+                    'options' => [
+                        'class' => 'table'
+                    ],
+                    'attributes' => [
+                        'id',
+                        //'parent_id',
+                        [
+                            'attribute' => 'parent_id',
+                            'value' => isset($model->category->title) ? '<a href=" ' . \yii\helpers\Url::to(['category/view', 'id' => $model->category->id]) . ' ">' . $model->category->title . '</a>' : 'Самостоятельная категория',
+                            'format' => 'raw'
+                        ],
+                        'title',
+                        'description',
+                        [
+                            'attribute' => 'index_page',
+                            'value' => function ($data) {
+                                return ($data->index_page) ? 'да' : 'нет';
+                            }
+                        ],
+                    ],
+                ]) ?></div>
         </div>
+        <!--        </div>-->
     </div>
 </div>
 
