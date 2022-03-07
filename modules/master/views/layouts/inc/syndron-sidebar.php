@@ -42,6 +42,13 @@ use yii\helpers\Url;
 				<div class="menu-title">Посты</div>
 			</a>
 		</li>
+        <li>
+            <a href="<?= Url::to(['articles/index']) ?>">
+                <div class="parent-icon"><i class='fadeIn animated bx bx-cabinet'></i>
+                </div>
+                <div class="menu-title">Статьи</div>
+            </a>
+        </li>
 		<li>
 			<a href="<?= Url::to(['chapter/index']) ?>">
 				<div class="parent-icon"><i class='fadeIn animated bx bx-cabinet'></i>

@@ -17,7 +17,7 @@ $config = [
     'modules' => [
         'master' => [
             'class' => 'app\modules\master\Module',
-            'layout' => 'syndron',
+            'layout' => 'admin',
             'defaultRoute' => 'main/index' // Дефолтный маршрут админки
         ],
     ],

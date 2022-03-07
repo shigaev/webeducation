@@ -1,0 +1,33 @@
+.header-admin {
+  background-color: $background-color;
+  color: #ffffff;
+  margin-left: $margin-left;
+  padding: 0;
+  height: 55px;
+
+  .navbar {
+    background-color: $background-color;
+
+    .navbar-brand {
+      color: #ffffff;
+      transition: .2s;
+
+      &:hover {
+        color: #a3a3a3;
+      }
+    }
+
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          color: #ffffff;
+          transition: .2s;
+
+          &:hover {
+            color: #a3a3a3;
+          }
+        }
+      }
+    }
+  }
+}

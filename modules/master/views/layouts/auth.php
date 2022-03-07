@@ -7,9 +7,9 @@ AuthAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
-    <html lang="<?= Yii::$app->language ?>">
+    <html lang="<?= Yii::$app->language ?>" class="h-100">
     <head>
-        <base href="/web/master/">
+        <base href="/admin/">
         <meta charset="<?= Yii::$app->charset ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <?php $this->registerCsrfMetaTags() ?>
@@ -18,9 +18,9 @@ AuthAsset::register($this);
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <?php $this->head() ?>
     </head>
-    <body class="hold-transition login-page">
+    <body class="d-flex flex-column h-100">
     <?php $this->beginBody() ?>
-<!--    --><?//= Yii::$app->getSecurity()->generatePasswordHash('MasterAdmin92') ?>
+    <!--    --><? //= Yii::$app->getSecurity()->generatePasswordHash('MasterAdmin92') ?>
     <?= $content ?>
     <?php $this->endBody() ?>
     </body>

@@ -11,12 +11,9 @@ $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'i
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 
-<div class="card">
-	<div class="card-body">
-		<div class="table-responsive">
-            <?= $this->render('_form', [
-                'model' => $model,
-            ]) ?>
-		</div>
-	</div>
+
+<div class="table-responsive">
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
 </div>

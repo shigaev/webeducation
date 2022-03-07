@@ -10,10 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Chapters', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="card">
-	<div class="card-body">
-        <?= $this->render('_form', [
-            'model' => $model,
-        ]) ?>
-	</div>
-</div>
+
+<?= $this->render('_form', [
+    'model' => $model,
+]) ?>

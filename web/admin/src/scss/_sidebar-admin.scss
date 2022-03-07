@@ -1,0 +1,65 @@
+.sidebar-admin {
+  background-color: #002141;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: $width;
+  transition: .3s;
+
+  .sidebar-admin__header {
+    background-color: #001830;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    height: 55px;
+    border-right: 1px solid #ffffff24;
+
+    .user-admin {
+      height: 40px;
+      width: 40px;
+      background: url("../img/admin.jpg") center center no-repeat;
+      background-size: cover;
+      border-radius: 50px;
+      margin: 10px;
+    }
+
+    .user-admin__name {
+      font-size: 14px;
+    }
+  }
+
+  .sidebar-admin__content {
+    .sidebar-admin__menu {
+      .sidebar-admin__list {
+
+        .sidebar-admin__item {
+          display: block;
+          text-decoration: none;
+          color: #ffffff;
+          border-bottom: 1px solid #ffffff26;
+          padding: 5px 10px;
+          transition: .2s;
+
+          &:hover {
+            background-color: #001830;
+          }
+
+          .sidebar-admin__icon {
+            width: 25px;
+          }
+
+          .sidebar-admin__link {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .sidebar-admin__footer {
+    background-color: #001830;
+    color: #ffffff;
+    height: 50px;
+  }
+}
