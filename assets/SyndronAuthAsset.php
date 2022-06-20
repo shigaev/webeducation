@@ -33,7 +33,7 @@ class SyndronAuthAsset extends AssetBundle
         'syndron/assets/js/my-app.js',
     ];
     public $depends = [
-        'yii\web\YiiAsset',
+//        'yii\web\YiiAsset',
 //        'yii\bootstrap4\BootstrapAsset',
     ];
 }

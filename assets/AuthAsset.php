@@ -13,10 +13,10 @@ class AuthAsset extends AssetBundle
         'admin/dist/css/main.min.css'
     ];
     public $js = [
-
+        'admin/dist/js/main.min.js'
     ];
     public $depends = [
-        'yii\web\YiiAsset',
+//        'yii\web\YiiAsset',
 //        'yii\bootstrap4\BootstrapAsset',
     ];
 }

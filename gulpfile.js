@@ -10,6 +10,8 @@ let paths = {
     },
     src: {
         scss: 'src/scss/**/main.scss',
+        adminScss: 'src/admin/scss/main.scss',
+        adminJs: 'src/admin/js/admin.js',
         js: [
             'src/**/main.js'
         ],
@@ -20,6 +22,8 @@ let paths = {
     },
     watch: {
         scss: 'src/**/*.scss',
+        adminScss: 'src/admin/**/*.scss',
+        adminJs: 'src/admin/**/*.js',
         js: 'src/**/*.js',
         img: 'src/img/**/*',
         sprites: 'src/img/sprites/**/*.*',
@@ -53,7 +57,7 @@ const rename = require('gulp-rename')
 function browsersync() {
     browserSync.init({
         proxy: {
-            target: "http://local.webeducation/", // заворачивает локальный адрес в localhost
+            target: "http://webeducation.loc/", // заворачивает локальный адрес в localhost
         },
         notify: false, // Отключает уведомления browser-sync
         online: true // Работа в локальной сети (есть возможность зайти с мобильного устройства)
@@ -86,11 +90,48 @@ function css() {
         .pipe(browserSync.stream())
 }
 
+function adminCss() {
+    return src(paths.src.adminScss)
+        .pipe(scss())
+        .pipe(autoprefix({
+            overrideBrowserslist: [
+                'last 10 versions' // 10 последних версий браузеров
+            ], grid: true // префиксы для grid css
+        }))
+        .pipe(rigger())
+        .pipe(concat('admin.min.css'))
+        .pipe(mode.development(sourcemap.init()))
+        .pipe(mode.production(cleanCss(
+            (
+                {
+                    level:
+                        {
+                            1: {specialComments: 0}
+                        },
+                }
+            )
+        )))
+        .pipe(mode.development(sourcemap.write()))
+        .pipe(dest(paths.build.css))
+        .pipe(browserSync.stream())
+}
+
 // Работа с файлами javascript
 function js() {
     return src(paths.src.js)
         .pipe(rigger())
         .pipe(concat('main.min.js'))
+        .pipe(mode.development(sourcemap.init()))
+        .pipe(mode.production(uglify()))
+        .pipe(mode.development(sourcemap.write()))
+        .pipe(dest(paths.build.js))
+        .pipe(browserSync.stream())
+}
+
+function adminJs() {
+    return src(paths.src.adminJs)
+        .pipe(rigger())
+        .pipe(concat('admin.min.js'))
         .pipe(mode.development(sourcemap.init()))
         .pipe(mode.production(uglify()))
         .pipe(mode.development(sourcemap.write()))
@@ -166,8 +207,8 @@ function php() {
 function cleanWeb() {
     return del(
         [
-            '../web/js/',
-            '../web/css/',
+            'web/js/',
+            'web/css/',
         ], {force: true})
 }
 
@@ -177,8 +218,14 @@ function startWatch() {
         paths.watch.js,
     ], js)
     watch([
-        paths.watch.scss
+        paths.watch.scss,
     ], css)
+    watch([
+        paths.watch.adminScss
+    ], adminCss)
+    watch([
+        paths.watch.adminJs,
+    ], adminJs)
     watch([paths.watch.img], img)
     watch([paths.watch.fonts], fonts)
     watch([paths.watch.php], php)
@@ -188,10 +235,12 @@ exports.browsersync = browsersync
 exports.js = js
 exports.php = php
 exports.css = css
+exports.adminCss = adminCss
+exports.adminJs = adminJs
 exports.img = img
 exports.fonts = fonts
 exports.faviconGenerate = faviconGenerate
 exports.sprite = sprite
 exports.cleanWeb = cleanWeb
 
-exports.default = parallel(cleanWeb, css, php, js, img, fonts, faviconGenerate, sprite, browsersync, startWatch)
+exports.default = parallel(cleanWeb, css, adminCss, adminJs, php, js, img, fonts, faviconGenerate, sprite, browsersync, startWatch)

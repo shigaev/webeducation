@@ -13,60 +13,115 @@ $this->title = 'Категории';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<?= Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']) ?>
-<?= GridView::widget([
-    'dataProvider' => $dataProvider,
-//                'filterModel' => $searchModel,
-    'tableOptions' => ['class' => 'table table-hover'],
-    /**
-     * Настройки пагинации
-     */
-    'pager' => [
-        'nextPageLabel' => 'Next',
-        'prevPageLabel' => 'Previous',
-        'disableCurrentPageButton' => false,
-        'nextPageCssClass' => 'page-item',
-        'prevPageCssClass' => 'page-item',
-        'pageCssClass' => 'page-item',
+<?= Html::a('New category', ['create'], ['class' => 'btn btn-success']) ?>
+<div class="table-wrapper">
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        // 'filterModel' => $searchModel,
+        'showHeader' => true,
+        'summary' => "Showing {begin} - {end} of {totalCount} items",
+        'tableOptions' => [
+            'class' => 'table table-hover',
+        ],
+
+        'rowOptions' => function ($model, $key, $index, $grid) {
+            $class = $index % 2 ? 'odd' : 'table-row';
+            return [
+                'key' => $key,
+                'index' => $index,
+                'class' => $class
+            ];
+        },
+
+        'columns' => [
+            // ['class' => 'yii\grid\SerialColumn'],
+            'id',
+            'title',
+            [
+                'attribute' => 'image',
+                'value' => function ($data) {
+                    return !empty($data->image) ? '<img style="width:30px;" src="/uploads/' . $data->image . '">' :
+                        '<img style="width:30px;" src="/upload/files/no-image.png">';
+                },
+                'format' => 'raw'
+            ],
+            [
+                'attribute' => 'index_page',
+                'headerOptions' => ['width' => '100'],
+                'contentOptions' => [
+                    'class' => 'table-visibility-column',
+                ],
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return ($data->index_page) ?
+                        Html::tag('span', Html::encode('visible'), ['class' => 'visible']) :
+                        Html::tag('span', Html::encode('hidden'), ['class' => 'hidden']);
+                }
+            ],
+            //'chapter_id',
+            [
+                'attribute' => 'parent_id',
+                'contentOptions' => [
+                    'class' => 'table-independent-colum',
+                ],
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return $data->category->title ?? Html::tag('span', Html::encode('Independent'), ['class' => 'table-independent-colum__data']);
+                }
+            ],
+//            'description',
+            [
+                'attribute' => 'description',
+                'format' => 'raw',
+                'value' => function ($data) {
+//                    var_dump($data->description);
+                    return Html::tag('span', Html::encode($data->description), ['class' => 'table-description-colum']);
+                }
+            ],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'contentOptions' => [
+//                    'style' => 'white-space: nowrap; background-color:#f2f2f2; text-align: center; letter-spacing: 0.1em; max-width: 7rem;',
+                    'class' => 'table-actions'
+                ],
+                'header' => 'Actions',
+                'buttons' => [
+                    'update' => function ($url, $model) {
+                        return Html::a(
+                            '<i class="bi bi-pencil-square"></i>',
+                            $url);
+                    },
+                    'view' => function ($url, $model) {
+                        return Html::a(
+                            '<i class="bi bi-eye"></i>',
+                            $url);
+                    },
+                    'delete' => function ($url, $model) {
+                        return Html::a(
+                            '<i class="bi bi-trash3"></i>',
+                            $url);
+                    },
+                ],
+            ],
+        ],
+
+        /**
+         * Настройки пагинации
+         */
+        'pager' => [
+            'nextPageLabel' => 'Next',
+            'prevPageLabel' => 'Previous',
+            'disableCurrentPageButton' => false,
+            'nextPageCssClass' => 'page-item',
+            'prevPageCssClass' => 'page-item',
+            'pageCssClass' => 'page-item',
 //					'maxButtonCount' => '',
-        'linkOptions' => [
-            'class' => 'page-link'
+            'linkOptions' => [
+                'class' => 'page-link'
+            ],
+            'disabledListItemSubTagOptions' => [
+                'class' => 'page-link'
+            ]
         ],
-        'disabledListItemSubTagOptions' => [
-            'class' => 'page-link'
-        ]
-    ],
-
-    'columns' => [
-//                    ['class' => 'yii\grid\SerialColumn'],
-
-        'id',
-        'title',
-//                    'image',
-        [
-            'attribute' => 'image',
-            'value' => function ($data) {
-                return !empty($data->image) ? '<img style="width:30px;" src="/uploads/' . $data->image . '">' :
-                    '<img style="width:30px;" src="/upload/files/no-image.png">';
-            },
-            'format' => 'raw'
-        ],
-        //'index_page',
-        [
-            'attribute' => 'index_page',
-            'value' => function ($data) {
-                return ($data->index_page) ? 'да' : 'нет';
-            }
-        ],
-        //'chapter_id',
-        //'parent_id',
-        [
-            'attribute' => 'parent_id',
-            'value' => function ($data) {
-                return $data->category->title ?? 'Самостоятельная категория';
-            }
-        ],
-        'description',
-        ['class' => 'yii\grid\ActionColumn', 'header' => 'Действия'],
-    ],
-]); ?>
+    ]); ?>
+</div>

@@ -1,0 +1,23 @@
+.header-admin {
+  background-color: #1a252f;
+
+  .navbar-brand {
+    color: #FFFFFF;
+
+    &:hover {
+      color: #747474;
+    }
+  }
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        color: #FFFFFF;
+
+        &:hover {
+          color: #747474;
+        }
+      }
+    }
+  }
+}

@@ -34,15 +34,18 @@ AdminAsset::register($this);
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= Yii::$app->homeUrl ?>" target="_blank">На сайт</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= Url::to(['auth/logout']) ?>">Выйти</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
+                    <!--<form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button type="button" class="btn btn-success">Search</button>
-                    </form>
+                    </form>-->
                 </div>
             </div>
         </nav>
@@ -51,29 +54,30 @@ AdminAsset::register($this);
     <!-- /.header-admin -->
 
     <div class="wrapper">
-        <?= $this->render('/layouts/inc/admin-sidebar') ?>
-        <?= Alert::widget() ?>
-
-        <div class="content-admin">
-            <div class="content-admin__wrap">
-                <?= Breadcrumbs::widget([
-                    'itemTemplate' => "<li class='breadcrumb-item'>{link}</li>\n", // template for all links
-                    'activeItemTemplate' => "<li class=\"breadcrumb-item active\">{link}</li>\n",
-                    'homeLink' => ['label' => 'Главная', 'url' => '/master/'],
-                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                ]) ?>
-                <?= $content ?>
+        <div class="container-fluid py-3">
+            <div class="row">
+                <div class="col-md-2">
+                    <?= $this->render('/layouts/inc/admin-sidebar') ?>
+                </div>
+                <div class="col-md-10">
+                    <?= Alert::widget() ?>
+                    <?= Breadcrumbs::widget([
+                        'itemTemplate' => "<li class='breadcrumb-item'>{link}</li>\n", // template for all links
+                        'activeItemTemplate' => "<li class=\"breadcrumb-item active\">{link}</li>\n",
+                        'homeLink' => ['label' => 'Главная', 'url' => '/master/'],
+                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    ]) ?>
+                    <?= $content ?>
+                </div>
             </div>
         </div>
-        <!-- /.content-admin -->
     </div>
-    <!-- /.wrapper -->
-    <footer class="footer mt-auto">
-        <h2>Footer</h2>
-    </footer>
-    <!-- /.footer mt-auto -->
 
-    <script src="js/main.min.js"></script>
+    <footer class="footer py-3 mt-auto">
+        <div class="container-fluid">
+            <h2>Footer</h2>
+        </div>
+    </footer>
 
     <?php $this->endBody() ?>
     </body>

@@ -27,7 +27,15 @@ $config = [
 //            'timeout'=>3600,
 //        ],
         'assetManager' => [
-            'appendTimestamp' => true, // кеширование js и css
+            'appendTimestamp' => true, // сброс кеша, версионирование css / js
+            'bundles' => [
+                'yii\bootstrap4\BootstrapPluginAsset' => [
+                    'js' => []
+                ],
+                'yii\bootstrap4\BootstrapAsset' => [
+                    'css' => []
+                ]
+            ],
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

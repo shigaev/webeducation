@@ -48,10 +48,10 @@ class Post extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'post_title' => 'Post Title',
-            'category_id' => 'Post Category',
-            'post_content' => 'Post Content',
-            'post_status' => 'Post Status',
+            'post_title' => 'Title',
+            'category_id' => 'Category',
+            'post_content' => 'Content',
+            'post_status' => 'Status',
         ];
     }
 }

@@ -43,7 +43,7 @@ class SyndronAdminAsset extends AssetBundle
         'syndron/assets/js/app.js',
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap4\BootstrapAsset',
+//        'yii\web\YiiAsset',
+//        'yii\bootstrap4\BootstrapAsset',
     ];
 }

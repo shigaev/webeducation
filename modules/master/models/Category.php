@@ -52,11 +52,11 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'chapter_id' => 'Раздел',
-            'parent_id' => 'Родительская категория',
-            'title' => 'Название категории',
-            'description' => 'Описание категории',
-            'index_page' => 'Отображение на главной'
+            'chapter_id' => 'Chapter',
+            'parent_id' => 'Parent',
+            'title' => 'Title',
+            'description' => 'Description',
+            'index_page' => 'Visibility'
         ];
     }
 
