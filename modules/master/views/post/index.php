@@ -34,6 +34,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             // ['class' => 'yii\grid\SerialColumn'],
 
+            /*[
+                'class' => 'yii\grid\CheckboxColumn', 'checkboxOptions' => function ($model) {
+                return ['value' => $model->id];
+            },
+            ],*/
+
             'id',
             [
                 'attribute' => 'post_title',

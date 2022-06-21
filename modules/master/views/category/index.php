@@ -35,6 +35,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
         'columns' => [
             // ['class' => 'yii\grid\SerialColumn'],
+            /*[
+                'class' => 'yii\grid\CheckboxColumn', 'checkboxOptions' => function ($model) {
+                return ['value' => $model->id];
+            },
+            ],*/
             'id',
             // 'title',
             [
@@ -88,7 +93,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     $result = implode(' ', $out_put);
 
                     return $result . '...';
-                }
+                },
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

@@ -67,5 +67,17 @@
       color: #FFFFFF;
       font-size: 12px;
     }
+
+    .table-independent-colum {
+
+      &__data {
+        background-color: blueviolet;
+        color: #FFFFFF;
+        padding: 3px 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 12px;
+      }
+    }
   }
 }
