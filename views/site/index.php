@@ -29,12 +29,18 @@ $this->title = 'Web education. Справочный портал по языка
         <div class="container">
             <div class="row">
                 <?php foreach ($category as $cat): ?>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-3">
+                    <!--<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-3">-->
+                    <div class="col-md-4 mb-3">
                         <div class="card h-100">
                             <div class="row h-100">
                                 <div class="col-md-4">
                                     <div class="card-image"
-                                         style="background: url('/uploads/<?= $cat['image'] ?>') center center no-repeat;background-size: cover"></div>
+                                        <?php if (!empty($cat['image'])): ?>
+                                            style="background: url('/uploads/<?= $cat['image'] ?>') center center no-repeat;background-size: cover"
+                                        <?php else: ?>
+                                            style="background: url('/img/no-image.svg') center center no-repeat;background-size: cover"
+                                        <?php endif; ?>
+                                    ></div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
