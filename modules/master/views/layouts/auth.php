@@ -18,10 +18,11 @@ AuthAsset::register($this);
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <?php $this->head() ?>
     </head>
-    <body class="d-flex flex-column h-100">
+    <body class="text-center d-flex flex-column h-100">
     <?php $this->beginBody() ?>
-    <!--    --><? //= Yii::$app->getSecurity()->generatePasswordHash('MasterAdmin92') ?>
-    <?= $content ?>
+    <main class="form-signin w-25 m-auto">
+        <?= $content ?>
+    </main>
     <?php $this->endBody() ?>
     </body>
     </html>
