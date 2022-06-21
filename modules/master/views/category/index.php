@@ -9,7 +9,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\master\models\CategorySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Категории';
+$this->title = 'Categories';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -36,7 +36,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             // ['class' => 'yii\grid\SerialColumn'],
             'id',
-            'title',
+            // 'title',
+            [
+                'attribute' => 'title',
+                'value' => function ($data) {
+                    $row = explode(' ', $data->title);
+                    $out_put = array_slice($row, 0, 4);
+                    $result = implode(' ', $out_put);
+
+                    return $result . '...';
+                }
+            ],
             [
                 'attribute' => 'image',
                 'value' => function ($data) {
@@ -69,19 +79,21 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $data->category->title ?? Html::tag('span', Html::encode('Independent'), ['class' => 'table-independent-colum__data']);
                 }
             ],
-//            'description',
             [
                 'attribute' => 'description',
                 'format' => 'raw',
                 'value' => function ($data) {
-//                    var_dump($data->description);
-                    return Html::tag('span', Html::encode($data->description), ['class' => 'table-description-colum']);
+                    $row = explode(' ', $data->description);
+                    $out_put = array_slice($row, 0, 5);
+                    $result = implode(' ', $out_put);
+
+                    return $result . '...';
                 }
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
                 'contentOptions' => [
-//                    'style' => 'white-space: nowrap; background-color:#f2f2f2; text-align: center; letter-spacing: 0.1em; max-width: 7rem;',
+                    // 'style' => 'white-space: nowrap; background-color:#f2f2f2; text-align: center; letter-spacing: 0.1em; max-width: 7rem;',
                     'class' => 'table-actions'
                 ],
                 'header' => 'Actions',
@@ -96,10 +108,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             '<i class="bi bi-eye"></i>',
                             $url);
                     },
-                    'delete' => function ($url, $model) {
-                        return Html::a(
-                            '<i class="bi bi-trash3"></i>',
-                            $url);
+                    'delete' => function ($url) {
+                        return Html::a('<i class="bi bi-trash3"></i>', $url,
+                            ['data' => [
+                                'method' => 'post',
+                                'confirm' => 'Are you sure?',
+                            ]]);
                     },
                 ],
             ],
@@ -115,7 +129,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nextPageCssClass' => 'page-item',
             'prevPageCssClass' => 'page-item',
             'pageCssClass' => 'page-item',
-//					'maxButtonCount' => '',
+            // 'maxButtonCount' => '',
             'linkOptions' => [
                 'class' => 'page-link'
             ],

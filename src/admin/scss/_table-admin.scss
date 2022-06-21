@@ -10,26 +10,7 @@
 
     th > a {
       text-decoration: none;
-    }
-
-    .table-visibility-column {
-      .visible {
-        background-color: #198754;
-        padding: 3px 10px;
-        border-radius: 5px;
-        text-align: center;
-        color: #FFFFFF;
-        font-size: 12px;
-      }
-
-      .hidden {
-        background-color: red;
-        padding: 3px 10px;
-        border-radius: 5px;
-        text-align: center;
-        color: #FFFFFF;
-        font-size: 12px;
-      }
+      color: #3858e9;
     }
 
     .table-actions {
@@ -68,5 +49,33 @@
         }
       }
     }
+
+    .visible {
+      background-color: #198754;
+      padding: 3px 10px;
+      border-radius: 5px;
+      text-align: center;
+      color: #FFFFFF;
+      font-size: 12px;
+    }
+
+    .hidden {
+      background-color: red;
+      padding: 3px 10px;
+      border-radius: 5px;
+      text-align: center;
+      color: #FFFFFF;
+      font-size: 12px;
+    }
+  }
+}
+
+.file-upload {
+  &__input {
+    margin: 10px 0;
+  }
+
+  &__button {
+    margin: 10px 0;
   }
 }

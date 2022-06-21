@@ -22,27 +22,60 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <div class="table-wrapper">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            // 'filterModel' => $searchModel,
+            'showHeader' => true,
+            'summary' => "Showing {begin} - {end} of {totalCount} items",
+            'tableOptions' => [
+                'class' => 'table table-hover',
+            ],
+            'rowOptions' => function ($model, $key, $index, $grid) {
+                $class = $index % 2 ? 'odd' : 'table-row';
+                return [
+                    'key' => $key,
+                    'index' => $index,
+                    'class' => $class
+                ];
+            },
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
+                'id',
 //            'category_id',
-            'title',
+                'title',
 //            'description',
 //            'content:ntext',
-            //'article_date',
-            [
-                'class' => ActionColumn::class,
-                'urlCreator' => function ($action, Articles $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                }
+                //'article_date',
+
+                [
+                    'class' => 'yii\grid\ActionColumn',
+                    'contentOptions' => [
+                        'class' => 'table-actions'
+                    ],
+                    'header' => 'Actions',
+                    'buttons' => [
+                        'update' => function ($url, $model) {
+                            return Html::a(
+                                '<i class="bi bi-pencil-square"></i>',
+                                $url);
+                        },
+                        'view' => function ($url, $model) {
+                            return Html::a(
+                                '<i class="bi bi-eye"></i>',
+                                $url);
+                        },
+                        'delete' => function ($url) {
+                            return Html::a('<i class="bi bi-trash3"></i>', $url,
+                                ['data' => [
+                                    'method' => 'post',
+                                    'confirm' => 'Are you sure?',
+                                ]]);
+                        },
+                    ],
+                ],
             ],
-        ],
-    ]); ?>
-
-
+        ]); ?>
+    </div>
 </div>

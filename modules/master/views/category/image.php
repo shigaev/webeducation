@@ -11,17 +11,21 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="category-form">
+<div class="file-upload">
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'image')->fileInput() ?>
+    <div class="file-upload__input">
+        <?= $form->field($model, 'image')->fileInput() ?>
+    </div>
 
-    <button>Submit</button>
+    <div class="file-upload__button">
+        <?= Html::submitButton('Submit', ['class' => 'btn btn-success file-submit']) ?>
+    </div>
 
-
-    <!--<div class="form-group">
-        </?/*= Html::submitButton('Submit', ['class' => 'btn btn-success']) */?>
-    </div>-->
-
+    <?php
+    if ($file !== null) {
+        Yii::$app->response->redirect(['master/category/view', 'id' => $category->id]);
+    }
+    ?>
     <?php ActiveForm::end(); ?>
 </div>

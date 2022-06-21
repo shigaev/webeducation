@@ -27,7 +27,7 @@ class CategoryController extends DefaultController
             parent::behaviors(),
             [
                 'verbs' => [
-                    'class' => VerbFilter::className(),
+                    'class' => VerbFilter::class,
                     'actions' => [
                         'delete' => ['POST'],
                     ],
@@ -155,15 +155,15 @@ class CategoryController extends DefaultController
     public function actionUploadImage($id)
     {
         $model = new ImageUpload();
+        $file = UploadedFile::getInstance($model, 'image');
+        $category = $this->findModel($id);
 
         if (Yii::$app->request->isPost) {
-
             $category = $this->findModel($id);
             $file = UploadedFile::getInstance($model, 'image');
-
             $category->saveImage($model->uploadFile($file));
         }
 
-        return $this->render('image', ['model' => $model]);
+        return $this->render('image', ['model' => $model, 'category' => $category, 'file' => $file]);
     }
 }

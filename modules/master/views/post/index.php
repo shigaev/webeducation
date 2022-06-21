@@ -7,17 +7,17 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\master\models\PostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Все посты';
+$this->title = 'Posts';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<?= Html::a('Создать пост', ['create'], ['class' => 'btn btn-success']) ?>
+<?= Html::a('New post', ['create'], ['class' => 'btn btn-success']) ?>
 
 <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 <div class="table-wrapper">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-//            'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'showHeader' => true,
         'summary' => "Showing {begin} - {end} of {totalCount} items",
         'tableOptions' => [
@@ -32,10 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ];
         },
         'columns' => [
-//                ['class' => 'yii\grid\SerialColumn'],
+            // ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-//            'post_title',
             [
                 'attribute' => 'post_title',
                 'value' => function ($data) {
@@ -46,15 +45,21 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $result . '...';
                 }
             ],
-//                            'category_id',
             [
                 'attribute' => 'category_id',
                 'value' => function ($data) {
                     return $data->category->title;
                 }
             ],
-//                            'post_content:ntext',
-            'post_status',
+            [
+                'attribute' => 'post_status',
+                'format' => 'raw',
+                'value' => function ($data) {
+                    return ($data->post_status) ?
+                        Html::tag('span', Html::encode('visible'), ['class' => 'visible']) :
+                        Html::tag('span', Html::encode('hidden'), ['class' => 'hidden']);
+                }
+            ],
 
             [
                 'class' => 'yii\grid\ActionColumn',
@@ -63,20 +68,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'header' => 'Actions',
                 'buttons' => [
-                    'update' => function ($url, $model) {
-                        return Html::a(
-                            '<i class="bi bi-pencil-square"></i>',
-                            $url);
+                    'update' => function ($url) {
+                        return Html::a('<i class="bi bi-pencil-square"></i>', $url);
                     },
-                    'view' => function ($url, $model) {
-                        return Html::a(
-                            '<i class="bi bi-eye"></i>',
-                            $url);
+                    'view' => function ($url) {
+                        return Html::a('<i class="bi bi-eye"></i>', $url);
                     },
-                    'delete' => function ($url, $model) {
-                        return Html::a(
-                            '<i class="bi bi-trash3"></i>',
-                            $url);
+                    'delete' => function ($url) {
+                        return Html::a('<i class="bi bi-trash3"></i>', $url,
+                            ['data' => [
+                                'method' => 'post',
+                                'confirm' => 'Are you sure?',
+                            ]]);
                     },
                 ],
             ],
@@ -91,7 +94,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nextPageCssClass' => 'page-item',
             'prevPageCssClass' => 'page-item',
             'pageCssClass' => 'page-item',
-//					'maxButtonCount' => '',
+            // 'maxButtonCount' => '',
             'linkOptions' => [
                 'class' => 'page-link'
             ],

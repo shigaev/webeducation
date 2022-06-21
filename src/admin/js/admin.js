@@ -7,5 +7,3 @@
 //         increaseArea: '20%' /* optional */
 //     });
 // });
-
-console.log('Backend')
