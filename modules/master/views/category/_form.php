@@ -17,7 +17,7 @@ $optionCategory = Category::find()
 
 ?>
 
-<div class="category-form">
+<div class="record-form">
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>

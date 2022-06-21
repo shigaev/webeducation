@@ -73,7 +73,7 @@ AdminAsset::register($this);
         </div>
     </div>
 
-    <footer class="footer py-3 mt-auto">
+    <footer class="footer mt-auto py-3">
         <div class="container-fluid">
             <h2>Footer</h2>
         </div>

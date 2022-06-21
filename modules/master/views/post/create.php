@@ -10,6 +10,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<?= $this->render('_form', [
-    'model' => $model,
-]) ?>
+<div class="table-wrapper">
+    <?= $this->render('_form', [
+        'model' => $model,
+    ]) ?>
+</div>

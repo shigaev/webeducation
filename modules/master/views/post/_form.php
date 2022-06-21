@@ -18,8 +18,6 @@ mihaildev\elfinder\Assets::noConflict($this);
 
     <?= $form->field($model, 'post_title')->textInput(['maxlength' => true]) ?>
 
-    <!--    --><? //= $form->field($model, 'category_id')->textInput() ?>
-
     <div class="form-group field-post-category_id has-success">
         <label class="control-label" for="post-category_id">Родительская категория</label>
         <select id="post-category_id" class="form-control" name="Post[category_id]">
@@ -50,7 +48,6 @@ mihaildev\elfinder\Assets::noConflict($this);
 
     ?>
 
-    <!--    --><? //= $form->field($model, 'post_status')->textInput() ?>
     <?= $form->field($model, 'post_status')->dropDownList(['Деактивировано', 'Активировано']) ?>
 
     <div class="form-group">
